@@ -1,223 +1,70 @@
-# AI-Based Resume Screening System
+# Getting Started with Create React App
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-An intelligent system to **automatically analyze resumes** and match them with job descriptions. The system extracts skills, education, and experience from resumes, calculates a match percentage, and provides a recommendation. Multiple resumes can be analyzed and ranked.
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## 🚀 Features
+### `npm start`
 
-- Upload resumes in **PDF, DOCX, or TXT** format.
-- Paste or input **Job Description (JD)**.
-- Extract **skills, education, and experience** from resumes.
-- Compare resumes with JD:
-  - **Skills Match**
-  - **Experience Match**
-  - **Education Match**
-  - **Semantic similarity**
-- Compute **weighted score** and **recommendation**:
-  - Strongly Recommended
-  - Recommended
-  - Consider with Review
-  - Not Recommended
-- **Multiple resume analysis** and ranking.
-- **React frontend** with clean UI.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## 🗂️ Folder Structure
+### `npm test`
 
-```
-AI-Resume-Screening/
-│
-├─ backend/
-│   ├─ app/
-│   │   ├─ main.py                # Entry point of FastAPI app
-│   │   ├─ api/
-│   │   │   └─ resume.py          # Resume endpoints
-│   │   ├─ core/
-│   │   │   ├─ parser.py          # Text extraction & entity parsing
-│   │   │   ├─ skills.py          # NLP skill extraction
-│   │   │   └─ utils.py           # Helper functions
-│   │   └─ models/                # Optional Pydantic models
-│   ├─ requirements.txt           # Python dependencies
-│   └─ venv/                      # Virtual environment
-│
-├─ frontend/
-│   ├─ src/
-│   │   ├─ App.js                  # React main component
-│   │   ├─ App.css                 # Styles
-│   │   ├─ api.js                  # API calls to backend
-│   │   └─ assets/                 # Logo and images
-│   └─ package.json
-│
-└─ README.md
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-## 🛠️ Technologies Used
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- **Backend**:
-  - FastAPI (API server)
-  - Uvicorn (ASGI server)
-  - PyPDF2 (PDF parsing)
-  - python-docx (DOCX parsing)
-  - SpaCy (NLP for skill extraction)
-  - Python Regex (`re`) for parsing patterns
-- **Frontend**:
-  - React.js
-  - HTML, CSS, JavaScript
-- **Other Tools**:
-  - VS Code / PyCharm (development)
-  - Git & GitHub (version control)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
----
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## ⚙️ Installation & Setup
+### `npm run eject`
 
-### Backend
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-1. Clone the repository:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```bash
-git clone https://github.com/your-username/ai-resume-screening.git
-cd ai-resume-screening/backend
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-2. Create a virtual environment:
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```bash
-python -m venv venv
-```
+## Learn More
 
-3. Activate the virtual environment:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Windows:
-```bash
-venv\Scripts\activate
-```
-- macOS/Linux:
-```bash
-source venv/bin/activate
-```
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-4. Install dependencies:
+### Code Splitting
 
-```bash
-pip install -r requirements.txt
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-5. Download SpaCy English model:
+### Analyzing the Bundle Size
 
-```bash
-python -m spacy download en_core_web_sm
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-6. Start the backend server:
+### Making a Progressive Web App
 
-```bash
-uvicorn app.main:app --reload
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-The backend runs at: `http://127.0.0.1:8000`
+### Advanced Configuration
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Frontend
+### Deployment
 
-1. Navigate to the frontend folder:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-```bash
-cd ../frontend
-```
+### `npm run build` fails to minify
 
-2. Install npm dependencies:
-
-```bash
-npm install
-```
-
-3. Start the React app:
-
-```bash
-npm start
-```
-
-The frontend runs at: `http://localhost:3000`
-
----
-
-## 📄 API Endpoints
-
-### 1. Analyze Multiple Resumes
-
-**POST** `/api/analyze-multiple`
-
-**Form Data:**
-
-- `resumes` – Multiple resume files (PDF, DOCX, TXT)
-- `job_description` – Job Description text
-
-**Response Example:**
-
-```json
-[
-  {
-    "candidate_name": "John Doe",
-    "matched_skills": ["Python", "FastAPI"],
-    "missing_skills": ["Docker"],
-    "semantic_similarity": 78.5,
-    "recommendation": "Strongly Recommended"
-  },
-  {
-    "candidate_name": "Jane Smith",
-    "matched_skills": ["Java", "SQL"],
-    "missing_skills": ["AWS", "Docker"],
-    "semantic_similarity": 65.3,
-    "recommendation": "Recommended"
-  }
-]
-```
-
----
-
-## 🧠 How It Works
-
-1. **Resume Upload** → Backend extracts text using PyPDF2 / python-docx.
-2. **Text Parsing** → Extract skills, education, experience.
-3. **Job Description Parsing** → Extract required skills.
-4. **Comparison**:
-   - Skills matched vs JD
-   - Education match
-   - Experience calculation
-5. **Weighted Scoring**:
-   - Skills: 50%
-   - Experience: 30%
-   - Education: 20%
-6. **Semantic Similarity** → Measures how close the resume text is to JD text.
-7. **Final Match & Recommendation** → Combined score → Returns JSON.
-8. **Ranking** → Multiple resumes sorted by `final_match_percentage`.
-
----
-
-## 🏆 Future Improvements
-
-- Use **BERT or OpenAI embeddings** for advanced semantic similarity.
-- Store resumes and results in **database**.
-- Add **user authentication** and **admin dashboard**.
-- Enable **resume history tracking** for multiple job postings.
-
----
-
-## 👨‍💻 Author
-
-**Aneeq Imran**  
-- GitHub: https://github.com/ANEEQIMRAN-AI
-
-- LinkedIn: https://linkedin.com/in/aneeq-imran-977077340
-
----
-
-```
-
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
